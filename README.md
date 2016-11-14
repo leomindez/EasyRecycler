@@ -1,5 +1,5 @@
 # EasyRecycler
-Library to user Recycler View easily. 
+Library to use Recycler View easily. 
 
 ## Create ViewHolder 
 
