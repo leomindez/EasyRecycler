@@ -10,7 +10,7 @@ import android.view.View;
 import org.jetbrains.annotations.Nullable;
 
 import mx.leo.easyrecycler.util.RecyclerViewItemClickListener;
-import mx.leo.easyrecycler.util.extensions.RecyclerViewKt;
+import mx.leo.easyrecycler.util.extensions.RecyclerViewExtensionsKt;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         sampleAdapter.addItem("hola");
         sampleAdapter.addItem("mundo");
 
-        RecyclerViewKt.OnItemClickListener(recyclerView, new RecyclerViewItemClickListener.OnItemClickListener() {
+        RecyclerViewExtensionsKt.OnItemClickListener(recyclerView, new RecyclerViewItemClickListener.OnItemClickListener() {
             @Override
             public void onClick(@Nullable View view, @Nullable Integer position) {
                 Log.d("item", sampleAdapter.getItems().get(position));
