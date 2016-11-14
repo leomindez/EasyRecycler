@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerViewExtensionsKt.OnItemClickListener(recyclerView, new RecyclerViewItemClickListener.OnItemClickListener() {
             @Override
-            public void onClick(@Nullable View view, @Nullable Integer position) {
+            public void onItemClick(@Nullable View view, @Nullable Integer position) {
                 Log.d("item", sampleAdapter.getItems().get(position));
             }
         });

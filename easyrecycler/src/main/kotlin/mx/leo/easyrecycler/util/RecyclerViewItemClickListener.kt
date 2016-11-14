@@ -24,7 +24,7 @@ class RecyclerViewItemClickListener(context: Context, var recyclerViewItem: OnIt
     override fun onInterceptTouchEvent(rv: RecyclerView?, e: MotionEvent?): Boolean {
         val child:View? = rv?.findChildViewUnder(e!!.x,e.y)
         if(gestureDetector.onTouchEvent(e)) {
-            recyclerViewItem.onClick(child, rv?.getChildAdapterPosition(child))
+            recyclerViewItem.onItemClick(child, rv?.getChildAdapterPosition(child))
         }
         return false
     }
@@ -33,6 +33,6 @@ class RecyclerViewItemClickListener(context: Context, var recyclerViewItem: OnIt
     }
 
     interface OnItemClickListener {
-        fun onClick(view: View?, position: Int?)
+        fun onItemClick(view: View?, position: Int?)
     }
 }
