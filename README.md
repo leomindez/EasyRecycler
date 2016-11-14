@@ -3,6 +3,22 @@ Library to user Recycler View easily.
 
 ## Create ViewHolder 
 
+```
+ static class SampleViewHolder extends EasyViewHolder<String> {
+
+        TextView sampleItem;
+
+        public SampleViewHolder(@NotNull View view) {
+            super(view);
+            sampleItem = (TextView)view.findViewById(R.id.sample_item);
+        }
+
+        @Override
+        public void bindItem(String s, int position) {
+            sampleItem.setText(s);
+        }
+    }
+```
 ## Create Adapter 
 
 ```
