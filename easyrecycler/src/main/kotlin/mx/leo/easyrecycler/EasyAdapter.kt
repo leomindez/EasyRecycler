@@ -9,6 +9,7 @@ abstract class EasyAdapter<Holder: EasyViewHolder<Item>, Item>(var items : Array
     abstract fun createViewHolder(parent: ViewGroup?):Holder
 
     override fun getItemCount(): Int = items.size
+
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.bindItem(items.get(position),position)
     }
