@@ -27,10 +27,17 @@ abstract class EasyAdapter<Holder: EasyViewHolder<Item>, Item>(var items : Array
     }
 
     fun addItems(items:ArrayList<Item>) {
+        items.clear()
         items.addAll(items)
         notifyDataSetChanged()
     }
 
+    fun appendItems(items:ArrayList<Item>){
+        if(items.size > 0){
+            items.addAll(items.size - 1,items)
+            notifyDataSetChanged()
+        }
+    }
     fun deleteItem(position:Int){
         items.removeAt(position)
         notifyDataSetChanged()
