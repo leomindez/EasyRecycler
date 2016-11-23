@@ -2,6 +2,7 @@ package mx.leo.easyrecycler.adapter
 
 
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.GridLayoutManager.SpanSizeLookup
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import mx.leo.easyrecycler.viewholder.EasyHeaderViewHolder
@@ -37,9 +38,19 @@ abstract class EasyHeaderAdapter<Item> : EasyAdapter<EasyViewHolder<Item>, Item>
     }
 
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView?) {
-        if(recyclerView?.layoutManager is GridLayoutManager){
-
+        val manager = recyclerView?.layoutManager
+        if(manager is GridLayoutManager){
+            manager.spanSizeLookup = HeaderSpanSize(manager)
         }
 
+    }
+
+    class HeaderSpanSize(val manager:GridLayoutManager) : SpanSizeLookup(){
+        override fun getSpanSize(position: Int): Int {
+            if (position == 0)
+                return manager.spanCount
+            else
+                return 1
+        }
     }
 }
