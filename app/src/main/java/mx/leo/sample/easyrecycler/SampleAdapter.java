@@ -11,10 +11,6 @@ import org.jetbrains.annotations.Nullable;
 import mx.leo.easyrecycler.adapter.EasyAdapter;
 import mx.leo.easyrecycler.viewholder.EasyViewHolder;
 
-/**
- * Created by Leo on 13/11/16.
- */
-
 public class SampleAdapter extends EasyAdapter<SampleAdapter.SampleViewHolder, String> {
 
     @NotNull
@@ -37,4 +33,5 @@ public class SampleAdapter extends EasyAdapter<SampleAdapter.SampleViewHolder, S
             sampleItem.setText(s);
         }
     }
+
 }
