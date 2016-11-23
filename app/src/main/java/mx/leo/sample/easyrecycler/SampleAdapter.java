@@ -8,7 +8,7 @@ import android.widget.TextView;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import mx.leo.easyrecycler.EasyAdapter;
+import mx.leo.easyrecycler.adapter.EasyAdapter;
 import mx.leo.easyrecycler.viewholder.EasyViewHolder;
 
 /**

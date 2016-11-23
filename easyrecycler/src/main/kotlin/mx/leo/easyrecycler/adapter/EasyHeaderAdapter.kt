@@ -1,4 +1,4 @@
-package mx.leo.easyrecycler
+package mx.leo.easyrecycler.adapter
 
 
 import android.support.v7.widget.GridLayoutManager
@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import mx.leo.easyrecycler.viewholder.EasyHeaderViewHolder
 import mx.leo.easyrecycler.viewholder.EasyViewHolder
 
-abstract class EasyHeaderAdapter<Item> : EasyAdapter<EasyViewHolder<Item>,Item>() {
+abstract class EasyHeaderAdapter<Item> : EasyAdapter<EasyViewHolder<Item>, Item>() {
 
     object ViewHolderTypes {
         var HEADER_TYPE: Int = 0x001
         var ITEM_TYPE: Int = 0x010
     }
 
-    abstract fun createHeaderViewHolder(parent:ViewGroup?): EasyHeaderViewHolder<Item>
+    abstract fun createHeaderViewHolder(parent: ViewGroup?): EasyHeaderViewHolder<Item>
     abstract fun createItemViewHolder(parent: ViewGroup?): EasyViewHolder<Item>
 
     override fun createHolder(parent: ViewGroup?, viewType: Int): EasyViewHolder<Item> {
