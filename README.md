@@ -26,7 +26,7 @@ public class SampleAdapter extends EasyAdapter<SampleAdapter.SampleViewHolder, S
 
     @NotNull
     @Override
-    public SampleViewHolder createViewHolder(@Nullable ViewGroup parent) {
+    public SampleViewHolder createHolder(@Nullable ViewGroup parent, int viewType) {
         return new SampleViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.sample_item_layout,parent,false));
     }
 }
