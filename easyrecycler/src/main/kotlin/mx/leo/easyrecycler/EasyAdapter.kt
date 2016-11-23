@@ -2,11 +2,12 @@ package mx.leo.easyrecycler
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
+import mx.leo.easyrecycler.viewholder.EasyViewHolder
 import java.util.ArrayList;
 
 abstract class EasyAdapter<Holder: EasyViewHolder<Item>, Item>(var items : ArrayList<Item> = ArrayList<Item>()) : RecyclerView.Adapter<Holder>() {
 
-    abstract fun createViewHolder(parent: ViewGroup?):Holder
+    abstract fun createHolder(parent: ViewGroup?, viewType:Int):Holder
 
     override fun getItemCount(): Int = items.size
 
@@ -14,7 +15,7 @@ abstract class EasyAdapter<Holder: EasyViewHolder<Item>, Item>(var items : Array
         holder.bindItem(items.get(position),position)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): Holder = createViewHolder(parent)
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): Holder = createHolder(parent, viewType)
 
     fun addItem(item: Item) {
         items.add(item)
