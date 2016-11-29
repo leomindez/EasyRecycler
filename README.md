@@ -100,3 +100,19 @@ public class SampleHeaderAdapter extends EasyHeaderAdapter<String> {
         ((ItemAdapter) holder).bindItem(s);
     }
 }
+```
+## Recycler Header and Item Click
+```
+     RecyclerViewExtensionsKt.OnHeaderAndItemClickListener(recyclerView, new RecyclerViewHeaderClickListener.OnHeaderClickListener() {
+            @Override
+            public void onHeaderClick() {
+                Log.d("Header", "header click");
+            }
+        }, new RecyclerViewItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(@Nullable View view, @Nullable Integer position) {
+                Log.d("Item", sampleAdapter.getItems().get(position));
+            }
+        });
+```
+
