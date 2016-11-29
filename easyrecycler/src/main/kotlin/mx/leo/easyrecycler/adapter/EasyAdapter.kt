@@ -29,8 +29,7 @@ abstract class EasyAdapter<Holder:EasyViewHolder, Item>(var items : ArrayList<It
     }
 
     open fun addItems(items: ArrayList<Item>) {
-        items.clear()
-        items.addAll(items)
+        this.items = items;
         notifyDataSetChanged()
     }
 
