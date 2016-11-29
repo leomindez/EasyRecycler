@@ -3,6 +3,7 @@ package mx.leo.sample.easyrecycler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -38,14 +39,16 @@ public class SampleHeaderAdapter extends EasyHeaderAdapter<String> {
     }
 
     static class ItemAdapter extends EasyViewHolder<String> {
+        TextView textView;
 
         public ItemAdapter(@NotNull View view) {
             super(view);
+            textView = (TextView) view.findViewById(R.id.sample_item);
         }
 
         @Override
         public void bindItem(String s, int position) {
-
+            textView.setText(s);
         }
     }
 }

@@ -17,29 +17,30 @@ abstract class EasyAdapter<Holder: EasyViewHolder<Item>, Item>(var items : Array
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): Holder = createHolder(parent, viewType)
 
-    fun addItem(item: Item) {
+    open fun addItem(item: Item) {
         items.add(item)
         notifyDataSetChanged()
     }
 
-    fun addItemWithPosition(item: Item, position:Int) {
+   open fun addItemWithPosition(item: Item, position:Int) {
         items.add(position,item)
         notifyItemChanged(position)
     }
 
-    fun addItems(items: ArrayList<Item>) {
+    open fun addItems(items: ArrayList<Item>) {
         items.clear()
         items.addAll(items)
         notifyDataSetChanged()
     }
 
-    fun appendItems(items: ArrayList<Item>){
+    open fun appendItems(items: ArrayList<Item>){
         if(items.size > 0){
             items.addAll(items.size - 1,items)
             notifyDataSetChanged()
         }
     }
-    fun deleteItem(position:Int){
+
+    open fun deleteItem(position:Int){
         items.removeAt(position)
         notifyDataSetChanged()
     }

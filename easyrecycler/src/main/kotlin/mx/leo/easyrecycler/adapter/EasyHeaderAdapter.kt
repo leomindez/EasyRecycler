@@ -18,6 +18,15 @@ abstract class EasyHeaderAdapter<Item> : EasyAdapter<EasyViewHolder<Item>, Item>
     abstract fun createHeaderViewHolder(parent: ViewGroup?): EasyHeaderViewHolder<Item>
     abstract fun createItemViewHolder(parent: ViewGroup?): EasyViewHolder<Item>
 
+    override fun onBindViewHolder(holder: EasyViewHolder<Item>, position: Int) {
+        if(holder is EasyHeaderViewHolder && position == 0) {
+            return
+        }else {
+            holder.bindItem(items.get(position -1),position - 1)
+        }
+
+    }
+
     override fun createHolder(parent: ViewGroup?, viewType: Int): EasyViewHolder<Item> {
         if (viewType == ViewHolderTypes.HEADER_TYPE)
             return createHeaderViewHolder(parent)
@@ -26,16 +35,18 @@ abstract class EasyHeaderAdapter<Item> : EasyAdapter<EasyViewHolder<Item>, Item>
 
     }
 
-    override fun getItemCount(): Int {
-        return super.getItemCount()  + 1
-    }
-
     override fun getItemViewType(position: Int): Int {
         if(position == 0)
             return ViewHolderTypes.HEADER_TYPE
         else
             return ViewHolderTypes.ITEM_TYPE
     }
+
+    override fun getItemCount(): Int {
+        return items.size + 1
+    }
+
+
 
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView?) {
         val manager = recyclerView?.layoutManager

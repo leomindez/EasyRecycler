@@ -21,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.sample_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        final SampleAdapter sampleAdapter = new SampleAdapter();
+        final SampleHeaderAdapter sampleAdapter = new SampleHeaderAdapter();
+        //final SampleAdapter sampleAdapter = new SampleAdapter();
         recyclerView.setAdapter(sampleAdapter);
 
         sampleAdapter.addItem("hola");
