@@ -9,6 +9,7 @@ import android.view.View;
 
 import org.jetbrains.annotations.Nullable;
 
+import mx.leo.easyrecycler.util.RecyclerViewHeaderClickListener;
 import mx.leo.easyrecycler.util.RecyclerViewItemClickListener;
 import mx.leo.easyrecycler.util.extensions.RecyclerViewExtensionsKt;
 
@@ -28,10 +29,22 @@ public class MainActivity extends AppCompatActivity {
         sampleAdapter.addItem("hola");
         sampleAdapter.addItem("mundo");
 
-        RecyclerViewExtensionsKt.OnItemClickListener(recyclerView, new RecyclerViewItemClickListener.OnItemClickListener() {
+        /*RecyclerViewExtensionsKt.OnItemClickListener(recyclerView, new RecyclerViewItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(@Nullable View view, @Nullable Integer position) {
                 Log.d("item", sampleAdapter.getItems().get(position));
+            }
+        });*/
+
+        RecyclerViewExtensionsKt.OnHeaderAndItemClickListener(recyclerView, new RecyclerViewHeaderClickListener.OnHeaderClickListener() {
+            @Override
+            public void onHeaderClick() {
+                Log.d("Header", "header click");
+            }
+        }, new RecyclerViewItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(@Nullable View view, @Nullable Integer position) {
+                Log.d("Item", sampleAdapter.getItems().get(position));
             }
         });
     }
