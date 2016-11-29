@@ -10,35 +10,45 @@ import org.jetbrains.annotations.Nullable;
 
 import mx.leo.easyrecycler.adapter.EasyHeaderAdapter;
 import mx.leo.easyrecycler.viewholder.EasyHeaderViewHolder;
+import mx.leo.easyrecycler.viewholder.EasyItemViewHolder;
 import mx.leo.easyrecycler.viewholder.EasyViewHolder;
 
 public class SampleHeaderAdapter extends EasyHeaderAdapter<String> {
 
     @NotNull
     @Override
-    public EasyHeaderViewHolder<String> createHeaderViewHolder(@Nullable ViewGroup parent) {
+    public HeaderAdapter createHeaderViewHolder(@Nullable ViewGroup parent) {
         return new HeaderAdapter(LayoutInflater.from(parent.getContext()).inflate(R.layout.header_layout,parent,false));
     }
 
     @NotNull
     @Override
-    public EasyViewHolder<String> createItemViewHolder(@Nullable ViewGroup parent) {
+    public ItemAdapter createItemViewHolder(@Nullable ViewGroup parent) {
         return new ItemAdapter(LayoutInflater.from(parent.getContext()).inflate(R.layout.sample_item_layout,parent,false));
     }
 
-    static class HeaderAdapter extends EasyHeaderViewHolder<String>{
+    @Override
+    public void onBindHeaderViewHolder(@NotNull EasyViewHolder headerHolder) {
+        ((HeaderAdapter)headerHolder).bindHeader();
+    }
+
+    @Override
+    public void onBindItemViewHolder(@NotNull EasyViewHolder holder, String s, int position) {
+        ((ItemAdapter) holder).bindItem(s);
+    }
+
+
+    private static class HeaderAdapter extends EasyHeaderViewHolder{
 
         public HeaderAdapter(@NotNull View view) {
             super(view);
         }
-
-        @Override
-        public void bindItem(String s, int position) {
+        public void bindHeader(){
 
         }
     }
 
-    static class ItemAdapter extends EasyViewHolder<String> {
+    private static class ItemAdapter extends EasyItemViewHolder{
         TextView textView;
 
         public ItemAdapter(@NotNull View view) {
@@ -46,8 +56,7 @@ public class SampleHeaderAdapter extends EasyHeaderAdapter<String> {
             textView = (TextView) view.findViewById(R.id.sample_item);
         }
 
-        @Override
-        public void bindItem(String s, int position) {
+        public void bindItem(String s) {
             textView.setText(s);
         }
     }

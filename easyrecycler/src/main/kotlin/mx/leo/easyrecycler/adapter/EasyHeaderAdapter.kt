@@ -6,28 +6,30 @@ import android.support.v7.widget.GridLayoutManager.SpanSizeLookup
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import mx.leo.easyrecycler.viewholder.EasyHeaderViewHolder
+import mx.leo.easyrecycler.viewholder.EasyItemViewHolder
 import mx.leo.easyrecycler.viewholder.EasyViewHolder
 
-abstract class EasyHeaderAdapter<Item> : EasyAdapter<EasyViewHolder<Item>, Item>() {
+abstract class EasyHeaderAdapter<Item> : EasyAdapter<EasyViewHolder, Item>() {
 
     object ViewHolderTypes {
         var HEADER_TYPE: Int = 0x001
         var ITEM_TYPE: Int = 0x010
     }
 
-    abstract fun createHeaderViewHolder(parent: ViewGroup?): EasyHeaderViewHolder<Item>
-    abstract fun createItemViewHolder(parent: ViewGroup?): EasyViewHolder<Item>
+    abstract fun createHeaderViewHolder(parent: ViewGroup?): EasyHeaderViewHolder
+    abstract fun createItemViewHolder(parent: ViewGroup?): EasyItemViewHolder
+    abstract fun onBindHeaderViewHolder(headerHolder:EasyViewHolder)
 
-    override fun onBindViewHolder(holder: EasyViewHolder<Item>, position: Int) {
+
+    override fun onBindViewHolder(holder: EasyViewHolder, position: Int) {
         if(holder is EasyHeaderViewHolder && position == 0) {
-            return
-        }else {
-            holder.bindItem(items.get(position -1),position - 1)
-        }
-
+            onBindHeaderViewHolder(holder)
+        }else if(holder is EasyItemViewHolder) {
+            onBindItemViewHolder(holder,items.get(position-1),position)
+        }else{}
     }
 
-    override fun createHolder(parent: ViewGroup?, viewType: Int): EasyViewHolder<Item> {
+    override fun createHolder(parent: ViewGroup?, viewType: Int): EasyViewHolder {
         if (viewType == ViewHolderTypes.HEADER_TYPE)
             return createHeaderViewHolder(parent)
         else
