@@ -4,7 +4,7 @@ Library to use Recycler View easily.
 ## Create ViewHolder 
 
 ```
- lass SampleViewHolder extends EasyItemViewHolder {
+ class SampleViewHolder extends EasyItemViewHolder {
 
         TextView sampleItem;
 
