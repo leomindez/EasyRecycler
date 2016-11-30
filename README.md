@@ -1,5 +1,11 @@
 # EasyRecycler
 Library to use Recycler View easily. 
+# Usage
+
+```		
+maven { url 'https://jitpack.io' }
+compile 'com.github.leomindez:easyrecycler:V1.0.0'
+```
 
 # SimpleAdapter
 ## Create ViewHolder 
@@ -116,9 +122,4 @@ public class SampleHeaderAdapter extends EasyHeaderAdapter<String> {
         });
 ```
 
-# Usage
 
-```		
-maven { url 'https://jitpack.io' }
-compile 'com.github.leomindez:easyrecycler:V1.0.0'
-```
