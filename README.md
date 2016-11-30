@@ -1,3 +1,4 @@
+[![](https://jitpack.io/v/leomindez/easyrecycler.svg)](https://jitpack.io/#leomindez/easyrecycler)
 # EasyRecycler
 Library to use Recycler View easily. 
 # Usage
