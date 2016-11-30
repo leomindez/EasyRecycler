@@ -122,5 +122,14 @@ public class SampleHeaderAdapter extends EasyHeaderAdapter<String> {
             }
         });
 ```
-
-
+## Add Elements 
+```
+      SampleHeaderAdapter sampleAdapter = new SampleHeaderAdapter();
+        sampleAdapter.addItem("hola");
+        sampleAdapter.addItem("mundo");
+        
+        ArrayList<String> items = new ArrayList<String>();
+        items.add("hola");
+        items.add("mundo");
+        
+        sampleAdapter.addItems(items);
