@@ -5,7 +5,7 @@ Library to use Recycler View easily.
 
 ```		
 maven { url 'https://jitpack.io' }
-compile 'com.github.leomindez:easyrecycler:1.0.0'
+compile 'com.github.leomindez:easyrecycler:1.0.1'
 ```
 
 # SimpleAdapter
