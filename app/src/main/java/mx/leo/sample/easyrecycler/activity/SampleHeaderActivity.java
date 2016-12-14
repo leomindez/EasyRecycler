@@ -50,13 +50,13 @@ public class SampleHeaderActivity extends AppCompatActivity {
                 });
     }
 
-    private void setData(SampleHeaderAdapter sampleHeaderAdapter){
-        int [] photos = { R.drawable.java, R.drawable.ceylon, R.drawable.python, R.drawable.elixir};
-        String [] names = { getResources().getString(R.string.name_java), getResources().getString(R.string.name_ceylon),
-                getResources().getString(R.string.name_python), getResources().getString(R.string.name_elixir) };
-        String [] info = { getResources().getString(R.string.info_java), getResources().getString(R.string.info_ceylon),
+    private void setData(SampleHeaderAdapter sampleHeaderAdapter) {
+        int[] photos = {R.drawable.java, R.drawable.ceylon, R.drawable.python, R.drawable.elixir};
+        String[] names = {getResources().getString(R.string.name_java), getResources().getString(R.string.name_ceylon),
+                getResources().getString(R.string.name_python), getResources().getString(R.string.name_elixir)};
+        String[] info = {getResources().getString(R.string.info_java), getResources().getString(R.string.info_ceylon),
                 getResources().getString(R.string.info_python), getResources().getString(R.string.info_elixir)};
-        for (int i = 0; i < photos.length; i++){
+        for (int i = 0; i < photos.length; i++) {
             Language language = new Language();
             language.setPhoto(photos[i]);
             language.setName(names[i]);
@@ -66,7 +66,7 @@ public class SampleHeaderActivity extends AppCompatActivity {
     }
 
     private void showOptions(String name, String info, final SampleHeaderAdapter adapter,
-                             final int position){
+                             final int position) {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setTitle(name);
         dialog.setMessage(info);
@@ -76,7 +76,8 @@ public class SampleHeaderActivity extends AppCompatActivity {
             }
         });
         dialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
-            @Override public void onClick(DialogInterface dialogInterface, int i) { }
+            @Override public void onClick(DialogInterface dialogInterface, int i) {
+            }
         });
         dialog.show();
     }
