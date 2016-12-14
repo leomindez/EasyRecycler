@@ -11,10 +11,17 @@ open class RecyclerViewHeaderClickListener(context: Context, var headerClick:OnH
 
         val child:View? = rv?.findChildViewUnder(e!!.x,e.y)
         if(gestureDetector.onTouchEvent(e)) {
-            if(rv?.getChildAdapterPosition(child) == 0)
-                headerClick.onHeaderClick()
-            else
-                recyclerViewItem.onItemClick(child, (rv?.getChildAdapterPosition(child)?.minus(1)))
+            if(rv?.getChildAdapterPosition(child)!! >= 0) {
+                if (rv?.getChildAdapterPosition(child) == 0) {
+                    headerClick.onHeaderClick()
+                    return true
+                } else {
+                    recyclerViewItem.onItemClick(child, (rv?.getChildAdapterPosition(child)?.minus(1)))
+                    return true
+                }
+            }else {
+                return false
+            }
         }
         return false
     }
