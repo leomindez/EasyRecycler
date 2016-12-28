@@ -1,1 +1,1 @@
-include ':app', ':easyrecycler'
+include ':samplejava', ':easyrecycler', ':samplekotlin'

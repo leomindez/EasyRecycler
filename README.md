@@ -3,7 +3,7 @@
 Library to use Recycler View easily. 
 # Usage
 
-```		
+```gradle		
 maven { url 'https://jitpack.io' }
 compile 'com.github.leomindez:easyrecycler:1.0.1'
 ```
@@ -11,7 +11,7 @@ compile 'com.github.leomindez:easyrecycler:1.0.1'
 # SimpleAdapter
 ## Create ViewHolder 
 
-```
+```java
  class SampleViewHolder extends EasyItemViewHolder {
 
         TextView sampleItem;
@@ -28,7 +28,7 @@ compile 'com.github.leomindez:easyrecycler:1.0.1'
 ```
 ## Create Adapter 
 
-```
+```java
 class SampleAdapter extends EasyAdapter<SampleAdapter.SampleViewHolder, String> {
 
     @NotNull
@@ -46,7 +46,7 @@ class SampleAdapter extends EasyAdapter<SampleAdapter.SampleViewHolder, String> 
 ```
 
 ## Recycler Item Click
-```
+```java
  RecyclerViewExtensionsKt.OnItemClickListener(recyclerView, new RecyclerViewItemClickListener.OnItemClickListener() {
             @Override
             public void onClick(@Nullable View view, @Nullable Integer position) {
@@ -56,7 +56,7 @@ class SampleAdapter extends EasyAdapter<SampleAdapter.SampleViewHolder, String> 
 ```
 # Header Adapter
 ## Create Holders
-``` 
+``` java
 private static class HeaderAdapter extends EasyHeaderViewHolder {
 
         public HeaderAdapter(@NotNull View view) {
@@ -82,7 +82,7 @@ private static class HeaderAdapter extends EasyHeaderViewHolder {
 ```
 
 ## Create Header Adapter 
-```
+```java
 public class SampleHeaderAdapter extends EasyHeaderAdapter<String> {
 
     @NotNull
@@ -109,7 +109,7 @@ public class SampleHeaderAdapter extends EasyHeaderAdapter<String> {
 }
 ```
 ## Recycler Header and Item Click
-```
+```java
      RecyclerViewExtensionsKt.OnHeaderAndItemClickListener(recyclerView, new RecyclerViewHeaderClickListener.OnHeaderClickListener() {
             @Override
             public void onHeaderClick() {
@@ -123,7 +123,7 @@ public class SampleHeaderAdapter extends EasyHeaderAdapter<String> {
         });
 ```
 ## Add Elements 
-```
+```java
       SampleHeaderAdapter sampleAdapter = new SampleHeaderAdapter();
         sampleAdapter.addItem("hola");
         sampleAdapter.addItem("mundo");
@@ -133,3 +133,4 @@ public class SampleHeaderAdapter extends EasyHeaderAdapter<String> {
         items.add("mundo");
         
         sampleAdapter.addItems(items);
+ ```

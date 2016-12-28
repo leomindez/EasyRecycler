@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">EasyRecycler</string>
+    <array name="names">
+        <item>Java</item>
+        <item>Ceylon</item>
+        <item>Python</item>
+        <item>Elixir</item>
+    </array>
+
+    <array name="info">
+        <item>Java Programming Language was written by James Gosling along with two other person ‘Mike Sheridan‘ and ‘Patrick Naughton‘, while they were working at Sun Microsystems. Initially it was named oak Programming Language.</item>
+        <item>Ceylon is an object-oriented, strongly statically typed programming language with an emphasis on immutability, created by Red Hat. Ceylon programs run on the Java Virtual Machine, and can be compiled to JavaScript. The language design focuses on readability, predictability, toolability, modularity, and metaprogrammability.</item>
+        <item>Python is a widely used high-level, general-purpose, interpreted, dynamic programming language. Its design philosophy emphasizes code readability, and its syntax allows programmers to express concepts in fewer lines of code than possible in languages such as C++ or Java. The language provides constructs intended to enable writing clear programs on both a small and large scale.</item>
+        <item>Elixir is a functional, concurrent, general-purpose programming language that runs on the Erlang virtual machine (BEAM). Elixir builds on top of Erlang and shares the same abstractions for building distributed, fault-tolerant applications.</item>
+    </array>
+
+    <string name="delete.text">DELETE ITEM</string>
+    <string name="cancel.text">CANCEL</string>
+</resources>

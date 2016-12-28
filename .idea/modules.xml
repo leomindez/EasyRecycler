@@ -3,8 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EasyRecycler.iml" filepath="$PROJECT_DIR$/EasyRecycler.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/easyrecycler/easyrecycler.iml" filepath="$PROJECT_DIR$/easyrecycler/easyrecycler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/samplejava/samplejava.iml" filepath="$PROJECT_DIR$/samplejava/samplejava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/samplekotlin/samplekotlin.iml" filepath="$PROJECT_DIR$/samplekotlin/samplekotlin.iml" />
     </modules>
   </component>
 </project>
