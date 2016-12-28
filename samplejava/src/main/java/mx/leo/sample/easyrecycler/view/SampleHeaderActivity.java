@@ -27,12 +27,10 @@ import mx.leo.sample.easyrecycler.presenter.SampleHeaderPresenter;
 public class SampleHeaderActivity extends AppCompatActivity implements SampleHeaderView {
 
     @BindView(R.id.sample_header_recycler_view) RecyclerView recyclerView;
+    int [] images = { R.drawable.java, R.drawable.ceylon, R.drawable.python, R.drawable.elixir };
 
     private SampleHeaderAdapter sampleHeaderAdapter = new SampleHeaderAdapter();
     private SampleHeaderPresenter sampleHeaderPresenter;
-    private int[] images = { R.drawable.java, R.drawable.ceylon, R.drawable.python, R.drawable.elixir };
-    private String[] names = { "Java", "Ceylon", "Python", "Elixir" };
-    private String[] info = { "Java", "Ceylon", "Python", "Elixir" };
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +42,8 @@ public class SampleHeaderActivity extends AppCompatActivity implements SampleHea
 
     private void initializePresenter() {
         sampleHeaderPresenter = new SampleHeaderPresenter(this);
-        sampleHeaderPresenter.setData(images, names, info);
+        sampleHeaderPresenter.setData(images,
+                getResources().getStringArray(R.array.names), getResources().getStringArray(R.array.info));
     }
 
     private void setUpRecyclerView() {
@@ -73,12 +72,14 @@ public class SampleHeaderActivity extends AppCompatActivity implements SampleHea
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setTitle(name);
         dialog.setMessage(info);
-        dialog.setPositiveButton("DELETE ITEM", new DialogInterface.OnClickListener() {
+        dialog.setPositiveButton(getResources().getString(R.string.delete_text),
+                new DialogInterface.OnClickListener() {
             @Override public void onClick(DialogInterface dialog, int which) {
                 adapter.deleteItem(position);
             }
         });
-        dialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+        dialog.setNegativeButton(getResources().getString(R.string.cancel_text),
+                new DialogInterface.OnClickListener() {
             @Override public void onClick(DialogInterface dialogInterface, int i) {
             }
         });

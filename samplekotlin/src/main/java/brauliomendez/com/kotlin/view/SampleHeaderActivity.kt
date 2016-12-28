@@ -20,20 +20,19 @@ class SampleHeaderActivity : AppCompatActivity(), SampleHeaderView {
 
     private var adapter: SampleHeaderAdapter
     private var presenter : SampleHeaderPresenter
-    private val images = arrayOf( R.drawable.java, R.drawable.ceylon, R.drawable.python, R.drawable.elixir )
-    private val names = arrayOf("Java", "Ceylon", "Python", "Elixir")
-    private val info = arrayOf("Java", "Ceylon", "Python", "Elixir")
+    private val images : Array<Int>
 
     init {
         adapter = SampleHeaderAdapter()
         presenter = SampleHeaderPresenter(this)
+        images = arrayOf( R.drawable.java, R.drawable.ceylon, R.drawable.python, R.drawable.elixir )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_header)
         setUpRecyclerView()
-        presenter.setData(images, names, info)
+        presenter.setData(images, resources.getStringArray(R.array.names), resources.getStringArray(R.array.info))
     }
 
     fun setUpRecyclerView() {
@@ -60,10 +59,10 @@ class SampleHeaderActivity : AppCompatActivity(), SampleHeaderView {
         val dialog = AlertDialog.Builder(this)
         dialog.setTitle(name)
         dialog.setMessage(info)
-        dialog.setPositiveButton("DELETE ITEM") { dialogInterface, which ->
+        dialog.setPositiveButton(resources.getString(R.string.delete_text)) { dialogInterface, which ->
             adapter.deleteItem(position!!)
         }
-        dialog.setNegativeButton("CANCEL", { dialogInterface, which -> })
+        dialog.setNegativeButton(resources.getString(R.string.cancel_text), { dialogInterface, which -> })
         dialog.show()
     }
 }

@@ -29,8 +29,6 @@ public class SampleItemActivity extends AppCompatActivity implements SampleItemV
     private SampleItemPresenter sampleItemPresenter;
     private SampleItemAdapter sampleItemAdapter = new SampleItemAdapter();
     private int[] images = {R.drawable.java, R.drawable.ceylon, R.drawable.python, R.drawable.elixir};
-    private String[] names = {"Java", "Ceylon", "Python", "Elixir"};
-    private String[] info = {"Java", "Ceylon", "Python", "Elixir"};
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +41,8 @@ public class SampleItemActivity extends AppCompatActivity implements SampleItemV
 
     private void initializePresenter() {
         sampleItemPresenter = new SampleItemPresenter(this);
-        sampleItemPresenter.setData(images, names, info);
+        sampleItemPresenter.setData(images, getResources().getStringArray(R.array.names),
+                getResources().getStringArray(R.array.info));
     }
 
     private void setUpRecyclerView() {
@@ -69,12 +68,12 @@ public class SampleItemActivity extends AppCompatActivity implements SampleItemV
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setTitle(name);
         dialog.setMessage(info);
-        dialog.setPositiveButton("DELETE ITEM", new DialogInterface.OnClickListener() {
+        dialog.setPositiveButton(getResources().getString(R.string.delete_text), new DialogInterface.OnClickListener() {
             @Override public void onClick(DialogInterface dialog, int which) {
                 adapter.deleteItem(position);
             }
         });
-        dialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+        dialog.setNegativeButton(getResources().getString(R.string.cancel_text), new DialogInterface.OnClickListener() {
             @Override public void onClick(DialogInterface dialogInterface, int i) {
             }
         });
