@@ -134,3 +134,9 @@ public class SampleHeaderAdapter extends EasyHeaderAdapter<String> {
         
         sampleAdapter.addItems(items);
  ```
+## Example
+ ![1](https://github.com/BraulioMendez/EasyRecycler/blob/master/art/1.png "Recycler View With Header")  ![2](https://github.com/BraulioMendez/EasyRecycler/blob/master/art/2.png)  ![3](https://github.com/BraulioMendez/EasyRecycler/blob/master/art/3.png)  ![4](https://github.com/BraulioMendez/EasyRecycler/blob/master/art/4.png)  
+
+
+
+
