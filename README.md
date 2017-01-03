@@ -1,4 +1,4 @@
-[![](https://jitpack.io/v/leomindez/easyrecycler.svg)](https://jitpack.io/#leomindez/easyrecycler)
+[![](https://jitpack.io/v/leomindez/easyrecycler.svg)](https://jitpack.io/#leomindez/easyrecycler) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-EasyRecycler-green.svg?style=flat)](http://android-arsenal.com/details/1/4766)
 # EasyRecycler
 Library to use Recycler View easily. 
 # Usage
